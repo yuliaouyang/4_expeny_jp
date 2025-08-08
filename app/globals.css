@@ -66,6 +66,9 @@ main {
 .header-text {
   font-size: 2.5rem;
   line-height: 2.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .hero-section svg {
@@ -75,7 +78,11 @@ main {
 }
 
 .hero-section>div:first-of-type p {
-  max-width: 300px;
+  max-width: none;
+}
+
+.hero-section>div:first-of-type .text-medium {
+  max-width: 400px;
 }
 
 .hero-display {
@@ -163,11 +170,32 @@ section>h2 {
 .analytics-item {
   background: var(--background-muted);
   padding: 1rem;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
-.analytics-item p {
-  text-transform: capitalize;
+/* 上方标题：图标 + 日文一行显示 */
+.analytics-item p:first-of-type {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1rem;
+  font-weight: 600;
 }
+
+/* 下方数字或说明文字 */
+.analytics-item p:last-of-type {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text); /* 可选，控制颜色 */
+}
+
 
 .card-container {
   display: grid;
@@ -289,11 +317,10 @@ form textarea {
 }
 
 .fat-column {
-  grid-column: span 2/ span 2;
+  grid-column: span 2 / span 2;
 }
 
-/* login  */
-
+/* login */
 .login {
   display: flex;
   flex-direction: column;
@@ -311,7 +338,6 @@ form textarea {
   align-items: center;
   gap: 1rem;
 }
-
 
 /* footer */
 footer {
@@ -350,7 +376,6 @@ footer {
 }
 
 /* media queries */
-
 @media (min-width: 640px) {
   .goto a:first-of-type {
     display: block;
@@ -367,9 +392,14 @@ footer {
   .header-text {
     font-size: 3rem;
     line-height: 3rem;
+    white-space: nowrap;
   }
 
   .hero-section>div:first-of-type p {
+    max-width: none;
+  }
+
+  .hero-section>div:first-of-type .text-medium {
     max-width: 400px;
   }
 
@@ -393,7 +423,6 @@ footer {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 3rem;
   }
-
 
   .footer-content {
     flex-direction: row;

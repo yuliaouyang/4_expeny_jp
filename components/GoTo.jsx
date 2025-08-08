@@ -16,15 +16,15 @@ export default function GoTo() {
             {path == '/' && (
                 <>
                     <Link href={'/dashboard?register=true'}>
-                        <p>Sign Up</p>
+                        <p>新規登録</p>
                     </Link>
                     <Link href={'/dashboard'}>
-                        <button>Login &rarr;</button>
+                        <button>ログイン &rarr;</button>
                     </Link>
                 </>
             )}
             {(isAuthenticated && path == '/dashboard') && (
-                <button onClick={logout}>Logout</button>
+                <button onClick={logout}>ログアウト</button>
             )}
         </div>
     )
